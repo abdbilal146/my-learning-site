@@ -14,15 +14,18 @@
     "@mantine/core": "^8.3.8",
     "@mantine/hooks": "^8.3.8",
     "@portabletext/react": "^5.0.0",
+    "@react-three/fiber": "^9.4.0",
     "@tabler/icons": "^3.35.0",
     "@tabler/icons-react": "^3.35.0",
     "@tanstack/react-query": "^5.90.10",
     "embla-carousel": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
+    "motion": "^12.23.24",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-portable-text": "^0.6.0",
-    "react-router-dom": "^7.9.6"
+    "react-router-dom": "^7.9.6",
+    "three": "^0.181.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",

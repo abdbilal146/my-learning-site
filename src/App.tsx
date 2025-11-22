@@ -1,26 +1,59 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
 import './App.css'
+
+// Components
 import Footer from './components/footer/Footer'
 import Header from './components/header/Header'
 import MainContent from './components/main/MainContent'
 import ModalElement from './components/main/ModalElement'
+import Canva from './components/canvas/Canva'
+import ContactMe from './components/contact-me/ContactMe'
+
+
+const RootLayout = () => {
+  return (
+    <>
+      <Header />
+      <Outlet /> 
+      <Footer />
+    </>
+  )
+}
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <RootLayout />,
+    children: [
+      {
+        path: '/', 
+        element: <MainContent />,
+        children: [
+          {
+            path: 'courses',
+            element: <ModalElement />
+          },
+          {
+            path: 'courses/session/:id',
+            element: <ModalElement />
+          }
+        ]
+      },
+      {
+        path: 'canvas',
+        element: <Canva />
+      },
+      {
+        path: 'contact-me',
+        element: <ContactMe />
+      }
+    ]
+  }
+])
 
 function App() {
-
-  return (
-    <BrowserRouter>
-      <Header></Header>
-      <Routes>
-        <Route path='/' element={<MainContent/>}>
-            <Route path='/courses' element={<ModalElement/>}>
-              <Route path='/courses/session/:id'></Route>
-            </Route>
-        </Route>
-        <Route path='/contact'></Route>
-      </Routes>
-      <Footer></Footer>
-    </BrowserRouter> 
-  )
+  return <RouterProvider router={router} />
 }
 
 export default App

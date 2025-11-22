@@ -7,11 +7,12 @@ import {
 import { useQuery } from "@tanstack/react-query";
 import classes from "./MainContent.module.scss";
 import { Carousel } from "@mantine/carousel";
-import { Outlet, useNavigate } from "react-router-dom"; // Import useNavigate
+import { Outlet, useNavigate } from "react-router-dom";
+import { motion } from "motion/react";
 
 export default function MainContent() {
   const firstSectionTitle: string = "Mes Cours";
-  const navigate = useNavigate(); // Initialize hook
+  const navigate = useNavigate();
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ['toddo'],
@@ -44,7 +45,13 @@ export default function MainContent() {
 
   return (
     <main>
-      <section className={classes.first_section}>
+      <motion.section
+        className={classes.first_section}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
         <h1>{firstSectionTitle}</h1>
         <Container fluid>
           <Carousel
@@ -54,7 +61,6 @@ export default function MainContent() {
             emblaOptions={{ loop: true, align: "start" }}
           >
             {videosElements.map((el) => (
-              // Add key here directly to the slide
               <Carousel.Slide key={el.key}>{el}</Carousel.Slide>
             ))}
           </Carousel>
@@ -62,7 +68,7 @@ export default function MainContent() {
         
         <Outlet />
 
-      </section>
+      </motion.section>
     </main>
   );
 }
