@@ -8,8 +8,7 @@ import {motion} from "motion/react"
 const links = [
   { link: "/", label: "Mes Videos" },
   { link: "/contact-me", label: "Contactez-Moi" },
-  { link: "/learn", label: "Apprendre" },
-  /* { link: "/canvas", label: "canvas" }, */
+  { link: "/articles", label: "Apprendre/Articles" },
 ];
 
 const welcomeMessage:string = "Bienvenue sur mon espace d'apprentissage"
