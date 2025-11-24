@@ -9,6 +9,7 @@ import MainContent from './components/main/MainContent'
 import ModalElement from './components/main/ModalElement'
 import Canva from './components/canvas/Canva'
 import ContactMe from './components/contact-me/ContactMe'
+import ArticleListPage from './components/article/ArticleListPage'
 
 
 const RootLayout = () => {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: 'contact-me',
         element: <ContactMe />
+      },
+      {
+        path: 'articles',
+        element: <ArticleListPage />
       }
     ]
   }

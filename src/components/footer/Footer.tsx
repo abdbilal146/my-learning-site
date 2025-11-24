@@ -1,7 +1,6 @@
-import { IconBrandInstagram, IconBrandTiktok, IconBrandTwitter, IconBrandX, IconBrandYoutube } from '@tabler/icons-react';
+import { IconBrandInstagram, IconBrandTiktok, IconBrandX, IconBrandYoutube } from '@tabler/icons-react';
 import { ActionIcon, Anchor, Group } from '@mantine/core';
 import classes from './Footer.module.scss';
-import { useNavigate } from 'react-router-dom';
 
 const links = [
   { link: '#', label: 'Contact' },
@@ -14,26 +13,27 @@ const links = [
 const socialLinks = [
   { link: 'https://x.com/', label: 'X', icon: IconBrandX },
   { link: 'https://youtube.com/bilal_mancer', label: 'Youtube', icon: IconBrandYoutube },
-  { link: 'https://instagram.com/bilal_mancer', label: 'Instagram', icon: IconBrandInstagram },
-  {link: 'https://tiktok.com/bilal_mancer', label: 'Instagram', icon: IconBrandTiktok },
-]
+  { link: 'https://instagram.com/bilal.mancer', label: 'Instagram', icon: IconBrandInstagram },
+  { link: 'https://tiktok.com/@bilal.mancer.tech', label: 'TikTok', icon: IconBrandTiktok },
+];
 
 export default function Footer() {
-  const navigate = useNavigate()
-
-  function navigateTo(url:string){
-    navigate(url)
-  }
-
   const socialLinksItems = socialLinks.map((link) => (
-    <ActionIcon onClick={()=>{
-      navigateTo(link.link)
-    }} size="lg" variant="default" radius="xl">
+    <ActionIcon
+      key={link.label}
+      component="a"
+      href={link.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      size="lg"
+      variant="default"
+      radius="xl"
+    >
       <link.icon size={18} stroke={1.5} />
     </ActionIcon>
-  ))
-  const items = links.map((link) => (
+  ));
 
+  const items = links.map((link) => (
     <Anchor
       c="dimmed"
       key={link.label}
