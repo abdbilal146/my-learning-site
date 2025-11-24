@@ -1,4 +1,4 @@
-import { Container, AspectRatio, Card, Text, Flex } from "@mantine/core";
+import { Container, AspectRatio, Card,  Flex } from "@mantine/core";
 import classes from "./MainContent.module.scss"
 import {PortableText, type PortableTextBlock} from "@portabletext/react"
 
