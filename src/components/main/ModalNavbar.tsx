@@ -1,8 +1,8 @@
 import { useState } from "react";
 import classes from "./MainContent.module.scss"
-import { Group, Code, Button } from "@mantine/core";
-import { IconSwitchHorizontal, IconLogout, IconVideo } from "@tabler/icons-react";
-import { useNavigate } from "react-router-dom";
+import { Group, Code } from "@mantine/core";
+import { IconVideo } from "@tabler/icons-react";
+
 
 
 export default function ModalNavbar({data,onSendToParent,selectedSerieName}:any) {
